@@ -1,12 +1,16 @@
 import React from 'react';
 
 import ClientsContainer from '../containers/clients_container';
+import {Container} from 'semantic-ui-react'
 
 
 
 const clientsList = (props) => { 
   return (
-    <ClientsContainer {...props}/>
+    <Container>
+      <ClientsContainer {...props}/>
+    </Container>
+    
   )
 }
 
