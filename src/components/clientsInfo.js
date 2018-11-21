@@ -1,20 +1,25 @@
 import React from 'react';
-import { Grid, Card, Image, Divider } from 'semantic-ui-react';
+import { Item, Image } from 'semantic-ui-react';
 
 const ClientsInfo = (props) => {
   return (
     <div>
-      <Grid columns={2}>
-       { props.clients.clients && props.clients.clients.length > 0 ?
-          props.clients.clients.map( item => (
-            <Card>
-              <Image src={item.general.avatar}/>
-              <Card.Header>{item.general.firstName} {item.general.lastName}</Card.Header>
-            </Card>
+      <Item.Group>
+       { props.clients && props.clients.length > 0 ?
+          props.clients.map( client => (            
+            <Item key={client.contact.email} onClick={()=>props.onItemClick(client)}>
+            <Item.Image size='tiny' src={client.general.avatar} />
+      
+            <Item.Content>
+              <Item.Header as='a'>{client.general.firstName} {client.general.lastName}</Item.Header>
+              <Item.Meta>{client.job.title}</Item.Meta>
+                          
+            </Item.Content>
+          </Item>
           )) : null
 
        }
-      </Grid>
+      </Item.Group>
     </div>
   );
 };

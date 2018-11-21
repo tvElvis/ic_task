@@ -1,9 +1,10 @@
-export default function(state={},action){
+export default function(state={clientList:[],selectedClient:null},action){
 
   switch(action.type){
-    case 'GET_CLIENTS':
-      return {...state,clients:action.payload}
-    
+    case 'SET_CLIENTS':
+      return {...state,clientList:action.payload}
+    case 'SELECT_CLIENT':
+      return {...state,selectedClient:action.payload}
     default:
       return state;
   }
