@@ -3,6 +3,7 @@ import { Grid, Item } from 'semantic-ui-react';
 
 import Search from '../components/search';
 import ClientsInfo from '../components/clientsInfo';
+import styles from './container.css';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -29,23 +30,35 @@ class ClientsContainer extends Component {
   render() {
     const client = this.props.selectedClient;
     return (
-      <Grid columns={2} divided>
-        <Grid.Column computer={5}>
+      <Grid columns={2} divided container={false} >
+        <Grid.Column computer={5} className="culumn_left">
           <Search keywords={this.getKeywords} />
           <ClientsInfo clients={this.props.clients} onItemClick={this.onItemClick} />
         </Grid.Column>
-        <Grid.Column computer={11}>
+        <Grid.Column computer={11} className="culumn_right">
         {client ? (
           <Item  >
-          <Item.Image size='tiny' src={client.general.avatar} />
+          <Item.Image size='large' src={client.general.avatar} />
 
           <Item.Content>
-            <Item.Header as='a'>{client.general.firstName} {client.general.lastName}</Item.Header>
-            <Item.Meta>{client.job.title}</Item.Meta>
-
+            <Item.Header as='a' className="client_header">{client.general.firstName} {client.general.lastName}</Item.Header>
+            <Item.Meta className="client_meta">
+              {client.job.title} <br/>
+              Company: {client.job.company}
+            </Item.Meta>
+            <Item.Description>              
+              Country: {client.address.country} <br/>
+              City: {client.address.city} <br/>
+              Street: {client.address.street} <br/>
+              Zip Code: {client.address.zipCode} <br/>            
+            </Item.Description>
+            <Item.Extra>
+              Email: {client.contact.email} <br/>  
+              Phone: {client.contact.phone}
+            </Item.Extra>
           </Item.Content>
         </Item>
-        ): "Netyy"}
+        ): null}
           
         </Grid.Column>
       </Grid>

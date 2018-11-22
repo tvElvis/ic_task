@@ -1,0 +1,19 @@
+.culumn_left{
+  margin: 0;  
+}
+
+
+
+.culumn_right .item{
+  padding-top:10px
+}
+
+.client_header {
+  font-size: 24px;
+  padding: 5px;
+}
+
+.client_meta {
+  font-size: 20x;
+  padding: 5px;
+}

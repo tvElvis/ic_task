@@ -5,7 +5,7 @@ import { Input } from 'semantic-ui-react'
 
 const Search = (props) => {
   return (
-    <Input placeholder="Search..." onChange={event => props.keywords(event)}/>
+    <Input placeholder="Search..." onChange={event => props.keywords(event)} fluid/>
   );
 };
 

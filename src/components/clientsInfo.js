@@ -1,5 +1,5 @@
 import React from 'react';
-import { Item, Image } from 'semantic-ui-react';
+import { Item } from 'semantic-ui-react';
 
 const ClientsInfo = (props) => {
   return (

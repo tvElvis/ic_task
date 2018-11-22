@@ -25,15 +25,6 @@ export function setClients(keywords){
     }
 } 
 
-// export function clientsListAll() {
-  
-//   // const clientList = clients;
-
-//   return {
-//     type:'GET_CLIENTS_ALL',
-//     payload:clients
-//   }
-// }
 
 const searchObj = (obj, query) => {
 
